@@ -1,60 +1,37 @@
 # AI Feature PRD Example
 
-A personal practice portfolio piece: a complete product-management document set for a **fictional** AI-assisted feature, plus concise learning notes on LLMs and agentic AI.
+This is a practice project. I wanted to write a full set of product docs for an AI feature, so I made one up: a
+community platform called "CommunityHub" with a "Suggested Answers" feature. The product, the personas, the numbers,
+the targets and the timelines are all invented. This isn't client or employer work, and it doesn't claim any real
+results or experience.
 
-> **Personal practice project. Fictional product and sample data only.**
-> "CommunityHub" and its "Suggested Answers" feature are invented. All personas, numbers, targets, and timelines are illustrative hypotheses. This is not client or employer work, and it does not claim any real product outcomes or experience. The AI notes are learning notes, not expert guidance.
+The docs are in `docs/` and are meant to be read in order: a PRD, a Now/Next/Later roadmap, RICE prioritisation, user
+stories with acceptance criteria, metrics and OKRs, risks and dependencies, and an evaluation plan.
 
-## Purpose
+I also added a couple of learning notes on LLMs and agentic AI in `learning-notes/`. They're notes from my own
+learning and not expert advice. There's a tiny rule-based "agent" there too (`mock_agent.py`). It uses keyword matching
+only, so there's no model and no API key involved.
 
-To show how I structure product thinking for an AI feature: problem framing, PRD, roadmap, RICE prioritisation, user stories with acceptance criteria, metrics and OKRs, risks, and an evaluation plan.
+## Running the code
 
-## Structure
-
-```text
-ai-feature-prd-example/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── .markdownlint.json
-├── .github/workflows/ci.yml
-├── docs/
-│   ├── 01-prd.md
-│   ├── 02-roadmap.md                       # Now / Next / Later
-│   ├── 03-prioritization-rice.md
-│   ├── 04-user-stories-acceptance-criteria.md
-│   ├── 05-metrics-and-okrs.md
-│   ├── 06-risks-and-dependencies.md
-│   └── 07-evaluation-plan.md
-├── data/rice_backlog.csv                   # FICTIONAL inputs
-├── scripts/rice.py                         # RICE scoring (standard library only)
-├── output/rice_ranked.md                   # generated from the sample data
-└── learning-notes/
-    ├── llm-concepts.md                     # prompting, tool use, RAG, evaluation, risks
-    └── mock_agent.py                       # rule-based agent loop; no model, no API keys
-```
-
-## How to use it
-
-- Read the docs in numeric order, starting with the [PRD](docs/01-prd.md).
-- Copy the structure for your own feature and replace the fictional content.
-- Re-run the scoring after editing the backlog:
+The RICE script scores the fictional backlog in `data/rice_backlog.csv` and writes `output/rice_ranked.md`. It only
+uses the standard library.
 
 ```bash
 python scripts/rice.py
-```
-
-- Run the learning example (Python 3.9+, nothing to install):
-
-```bash
 python learning-notes/mock_agent.py
 ```
 
-## Limitations
+Python 3.9 or newer is fine and there's nothing to install.
 
-- Everything is hypothetical: no research, baselines, or results exist.
-- The mock agent uses keyword matching and is not a real model or a real agent framework.
+If you want to reuse the structure, copy the docs and swap in your own feature.
+
+## Honest notes
+
+Everything is a hypothesis. There was no user research and there are no baselines or results, so the RICE scores are
+my guesses. The mock agent is a toy and not a real agent framework. Next I'd like to write the evaluation plan against
+a real (small) dataset instead of an imagined one.
 
 ## Licence
 
-MIT. See [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
